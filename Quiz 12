@@ -1,0 +1,57 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.scene.control.Label;
+import javafx.scene.control.Hyperlink;
+import javafx.geometry.Pos;
+import javafx.geometry.Insets;
+///package javafx.scence.layout.HBox;
+
+public class Sample extends Application {
+
+
+    @Override
+    public void start(Stage stage) {
+	//Stage stage2 = new Stage();
+	
+	Button button = new Button("Accept");
+	
+	Hyperlink link = new Hyperlink();
+	link.setText("http://google.com");
+
+	GridPane grid = new GridPane();
+	grid.setAlignment(Pos.CENTER);
+	grid.setHgap(10);
+	grid.setVgap(10);
+	grid.setPadding(new Insets(25,25,25,25d));
+			
+	Scene scene1 = new Scene(grid, 300, 275);
+	stage.setScene(scene1);
+
+	Label label = new Label ("label");
+	grid.add(label, 1, 1);
+	grid.add(button, 10,10);
+	grid.add(link, 20,20);
+
+
+	stage.show();
+	
+
+
+
+    }
+
+
+    public static void main(String[] args) {
+	launch(args);
+
+
+
+
+    }
+
+}
