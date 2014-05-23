@@ -1,0 +1,50 @@
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.geometry.Pos;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+
+public class Glory extends Application {
+
+
+    /** 
+     * Input: 
+     * Desc:
+     * Output:
+     * Return:
+     */
+    @Override 
+    public void start(Stage stage) {
+	GridPane grid = new GridPane();
+	grid.setAlignment(Pos.TOP_LEFT);
+	grid.setHgap(10);
+	grid.setVgap(10);
+	grid.setPadding(new Insets(0, 0, 0, 0));
+
+	Scene scene = new Scene(grid, 450, 400);
+	stage.setTitle("Glory");
+	stage.setScene(scene);
+	stage.show();
+
+	Label enterRunnable = new Label("Enter Runnable:");
+	grid.add(enterRunnable, 4, 2);
+
+	TextField textField = new TextField();
+	grid.add(textField, 6, 2); 
+
+    }
+
+    /** 
+     * Input: 
+     * Desc:
+     * Output:
+     * Return:
+     */
+    public static void main(String[] args) {
+	launch(args);
+    }
+}
