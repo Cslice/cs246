@@ -1,0 +1,45 @@
+public void setActions() {
+        
+        // Set action for text field and add to runnablesListView
+        textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override 
+            public void handle(KeyEvent e) {                
+            if (e.getCode().equals(KeyCode.ENTER)){ 
+                
+                // Checks to see if runnable is valid before it is added to the list
+                if (!textField.getText().equals("") && listOfRunnables.contains(textField.getText())) {
+                    String prompt = textField.getText();    
+                    runnablesList.add(prompt);
+                    ObservableList<String> addToRunnables = FXCollections.observableArrayList(runnablesList);              
+                    runnablesListView.setItems(addToRunnables);
+                    textField.clear();
+                }
+                else {
+                    System.out.println("Please enter a valid runnable.");
+                }
+            }
+            }   
+        });
+        
+        start.setOnAction(new EventHandler<ActionEvent>() {
+        
+            @Override 
+            public void handle(ActionEvent event) {
+                runningThreadList.add(runnablesListView.getSelectionModel().getSelectedItem());
+                ObservableList<String> addToThreads = FXCollections.observableArrayList(runningThreadList);              
+                runningThreadListView.setItems(addToThreads);
+            }
+        });
+       
+        
+        stop.setOnAction(new EventHandler<ActionEvent>() {
+        
+            @Override 
+            public void handle(ActionEvent event) {
+                System.out.println(runningThreadListView.getSelectionModel().getSelectedItem());
+                runningThreadList.remove(runningThreadListView.getSelectionModel().getSelectedItem());
+                ObservableList<String> removeFromThreads = FXCollections.observableArrayList(runningThreadList);              
+                runningThreadListView.setItems(removeFromThreads);
+            }
+        });      
+    }
